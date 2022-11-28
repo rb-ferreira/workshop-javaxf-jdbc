@@ -1,18 +1,27 @@
 package GUI;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import GUI.util.Alerts;
+import GUI.util.Utils;
 import application.Main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.entities.Department;
 import model.services.DepartmentService;
@@ -36,9 +45,9 @@ public class DepartmentListController implements Initializable{
 	private ObservableList<Department> obsList;
 	
 	@FXML
-	public void onBtNewAction() {
-		
-		System.out.println("OnBtNewAction");
+	public void onBtNewAction(ActionEvent event) {
+		Stage parentStage = Utils.currentStage(event);
+		createDialogForm("/GUI/DepartmentForm.fxml", parentStage );
 	}
 	
 	public void setDepartmentService(DepartmentService service) {
@@ -77,6 +86,31 @@ public class DepartmentListController implements Initializable{
 		tableViewDepartment.setItems(obsList);
 		
 	}
+	
+	
+	private void createDialogForm(String absoluteName, Stage parentStage) {
+		
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteName));
+			Pane pane = loader.load();
+			
+			Stage dialogStage = new Stage();
+			dialogStage.setTitle("Enter Department data");
+			dialogStage.setScene(new Scene(pane));
+			dialogStage.setResizable(false); //janela não pode ser alterada
+			dialogStage.initOwner(parentStage);
+			dialogStage.initModality(Modality.WINDOW_MODAL); //Janela tem que ser fechado para acessar o os outros forms
+			dialogStage.showAndWait();
+			
+			
+		}
+		catch(IOException e){
+			Alerts.showAlert("IO Exception", "Error Loadind view",e.getMessage(), AlertType.ERROR);
+			
+		}
+		
+	}
+	
 	
 
 }
