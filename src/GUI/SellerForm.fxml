@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,41 +12,105 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="138.0" prefWidth="351.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.SellerFormController">
-   <children>
-      <GridPane layoutX="30.0" layoutY="14.0" prefHeight="109.0" prefWidth="352.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="14.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="148.0" minWidth="10.0" prefWidth="61.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="245.0" minWidth="10.0" prefWidth="156.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="225.0" minWidth="10.0" prefWidth="149.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints maxHeight="48.0" minHeight="5.0" prefHeight="34.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="54.0" minHeight="0.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="42.0" minHeight="0.0" prefHeight="16.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="49.0" minHeight="0.0" prefHeight="16.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="42.0" minHeight="0.0" prefHeight="18.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Label text="Id" />
-            <Label text="Name" GridPane.rowIndex="1" />
-            <TextField fx:id="txtId" editable="false" prefHeight="25.0" prefWidth="50.0" GridPane.columnIndex="1" />
-            <TextField fx:id="txtName" prefHeight="5.0" prefWidth="152.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label fx:id="lableErrorName" textFill="#eb0000" GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-               <padding>
-                  <Insets left="10.0" />
-               </padding>
-            </Label>
-            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
-               <children>
-                  <Button fx:id="btSave" mnemonicParsing="false" onAction="#onBtSaveAction" text="Salve" />
-                  <Button fx:id="btCancel" mnemonicParsing="false" onAction="#onBtCancelAction" text="Cancel" />
-               </children>
-            </HBox>
-         </children>
-      </GridPane>
-   </children>
+<AnchorPane prefHeight="313.0" prefWidth="391.0"
+	xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="GUI.SellerFormController">
+	<children>
+		<GridPane layoutX="30.0" layoutY="14.0" prefHeight="271.0"
+			prefWidth="349.0" AnchorPane.leftAnchor="30.0"
+			AnchorPane.topAnchor="14.0">
+			<columnConstraints>
+				<ColumnConstraints hgrow="SOMETIMES"
+					maxWidth="148.0" minWidth="10.0" prefWidth="82.0" />
+				<ColumnConstraints hgrow="SOMETIMES"
+					maxWidth="245.0" minWidth="10.0" prefWidth="125.0" />
+				<ColumnConstraints hgrow="SOMETIMES"
+					maxWidth="225.0" minWidth="10.0" prefWidth="149.0" />
+			</columnConstraints>
+			<rowConstraints>
+				<RowConstraints maxHeight="48.0" minHeight="5.0"
+					prefHeight="34.0" vgrow="SOMETIMES" />
+				<RowConstraints maxHeight="54.0" minHeight="0.0"
+					prefHeight="39.0" vgrow="SOMETIMES" />
+				<RowConstraints maxHeight="42.0" minHeight="0.0"
+					prefHeight="27.0" vgrow="SOMETIMES" />
+				<RowConstraints maxHeight="47.0" minHeight="10.0"
+					prefHeight="30.0" vgrow="SOMETIMES" />
+				<RowConstraints maxHeight="49.0" minHeight="0.0"
+					prefHeight="27.0" vgrow="SOMETIMES" />
+				<RowConstraints maxHeight="54.0" minHeight="10.0"
+					prefHeight="32.0" vgrow="SOMETIMES" />
+				<RowConstraints maxHeight="54.0" minHeight="10.0"
+					prefHeight="47.0" vgrow="SOMETIMES" />
+				<RowConstraints maxHeight="42.0" minHeight="0.0"
+					prefHeight="18.0" vgrow="SOMETIMES" />
+			</rowConstraints>
+			<children>
+				<Label text="Id" />
+				<Label text="Name" GridPane.rowIndex="1" />
+				<TextField fx:id="txtId" editable="false"
+					prefHeight="25.0" prefWidth="50.0" GridPane.columnIndex="1" />
+				<TextField fx:id="txtName" prefHeight="5.0"
+					prefWidth="152.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+				<Label fx:id="lableErrorName" textFill="#eb0000"
+					GridPane.columnIndex="2" GridPane.rowIndex="1">
+					<font>
+						<Font name="System Bold" size="12.0" />
+					</font>
+					<padding>
+						<Insets left="10.0" />
+					</padding>
+					<GridPane.margin>
+						<Insets left="10.0" />
+					</GridPane.margin>
+				</Label>
+				<HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0"
+					GridPane.columnIndex="1" GridPane.rowIndex="7">
+					<children>
+						<Button fx:id="btSave" mnemonicParsing="false"
+							onAction="#onBtSaveAction" text="Salve" />
+						<Button fx:id="btCancel" mnemonicParsing="false"
+							onAction="#onBtCancelAction" text="Cancel" />
+					</children>
+				</HBox>
+				<Label text="Email" GridPane.rowIndex="2" />
+				<Label text="Birth Date" GridPane.rowIndex="3" />
+				<Label text="Base Salary" GridPane.rowIndex="4" />
+				<Label text="Seller" GridPane.rowIndex="5" />
+				<TextField fx:id="txtEmail" GridPane.columnIndex="1"
+					GridPane.rowIndex="2" />
+				<TextField fx:id="txtBaseSalary" GridPane.columnIndex="1"
+					GridPane.rowIndex="4" />
+				<DatePicker fx:id="dpBirthDate" GridPane.columnIndex="1"
+					GridPane.rowIndex="3" />
+				<Label fx:id="lableErrorEmail" textFill="RED"
+					GridPane.columnIndex="2" GridPane.rowIndex="2">
+					<font>
+						<Font name="System Bold" size="12.0" />
+					</font>
+					<padding>
+						<Insets left="10.0" />
+					</padding>
+				</Label>
+				<Label fx:id="lableErrorBirthDate" textFill="RED"
+					GridPane.columnIndex="2" GridPane.rowIndex="3">
+					<font>
+						<Font name="System Bold" size="12.0" />
+					</font>
+					<padding>
+						<Insets left="10.0" />
+					</padding>
+				</Label>
+				<Label fx:id="lableErrorBaseSalary" textFill="RED"
+					GridPane.columnIndex="2" GridPane.rowIndex="4">
+					<font>
+						<Font name="System Bold" size="12.0" />
+					</font>
+					<padding>
+						<Insets left="10.0" />
+					</padding>
+				</Label>
+			</children>
+		</GridPane>
+	</children>
 </AnchorPane>
